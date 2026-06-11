@@ -208,10 +208,3 @@ Streamlit dashboard at `http://localhost:8501` — no coding required. Supports 
 - **GPU required for practical training** — CPU-only training on 10 years of daily data is possible but takes significantly longer.
 
 ---
-
-## License
-
-MIT — see [LICENSE](LICENSE).
-
-Research and educational use only. This software does not constitute financial advice and is not intended for use in live trading systems.
-
