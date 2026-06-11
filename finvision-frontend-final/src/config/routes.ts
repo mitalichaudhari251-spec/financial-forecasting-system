@@ -1,0 +1,76 @@
+export const ROUTES = {
+  AUTH: {
+    LOGIN: '/login',
+    REGISTER: '/register',
+    FORGOT_PASSWORD: '/forgot-password',
+  },
+  DASHBOARD: '/dashboard',
+  INGESTION: {
+    ROOT: '/ingestion',
+    UPLOAD: '/ingestion/upload',
+    PREVIEW: '/ingestion/preview',
+    VALIDATION: '/ingestion/validation',
+  },
+  PREPROCESSING: {
+    ROOT: '/preprocessing',
+    NORMALIZATION: '/preprocessing/normalization',
+    DIFFERENCING: '/preprocessing/differencing',
+    WINDOWING: '/preprocessing/windowing',
+  },
+  IMAGE_GENERATION: {
+    ROOT: '/image-generation',
+    CANDLESTICK: '/image-generation/candlestick',
+    GAF: '/image-generation/gaf',
+    GALLERY: '/image-generation/gallery',
+  },
+  CNN_ANALYSIS: {
+    ROOT: '/cnn-analysis',
+    EMBEDDINGS: '/cnn-analysis/embeddings',
+    FEATURE_MAPS: '/cnn-analysis/feature-maps',
+    GRADCAM: '/cnn-analysis/gradcam',
+  },
+  FORECASTING: {
+    ROOT: '/forecasting',
+    PREDICTIONS: '/forecasting/predictions',
+    CONFIDENCE: '/forecasting/confidence',
+    RECOMMENDATIONS: '/forecasting/recommendations',
+    EXPLAINABILITY: '/forecasting/explainability',
+  },
+  RL_AGENT: {
+    ROOT: '/rl-agent',
+    PPO: '/rl-agent/ppo',
+    DQN: '/rl-agent/dqn',
+    REWARD_MONITOR: '/rl-agent/reward-monitor',
+    POLICY_EVALUATION: '/rl-agent/policy-evaluation',
+  },
+  TRAINING: {
+    ROOT: '/training',
+    EXPERIMENTS: '/training/experiments',
+    LOGS: '/training/logs',
+    GPU_MONITOR: '/training/gpu-monitor',
+    HYPERPARAMETERS: '/training/hyperparameters',
+  },
+  ANALYTICS: {
+    ROOT: '/analytics',
+    BACKTESTING: '/analytics/backtesting',
+    BENCHMARK: '/analytics/benchmark-comparison',
+    RISK_ANALYSIS: '/analytics/risk-analysis',
+    PORTFOLIO: '/analytics/portfolio-simulation',
+  },
+  REPORTS: {
+    ROOT: '/reports',
+    PDF: '/reports/pdf',
+    EXPORT: '/reports/export',
+    TEMPLATES: '/reports/templates',
+  },
+  HISTORY: {
+    ROOT: '/history',
+    DETAIL: (id: string) => `/history/${id}`,
+  },
+  SETTINGS: {
+    ROOT: '/settings',
+    PROFILE: '/settings/profile',
+    PREFERENCES: '/settings/preferences',
+    NOTIFICATIONS: '/settings/notifications',
+  },
+} as const;

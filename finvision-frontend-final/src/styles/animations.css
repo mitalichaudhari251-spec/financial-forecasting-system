@@ -1,0 +1,26 @@
+/* FinVision-RL Animations */
+@keyframes fv-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fv-slide-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fv-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes fv-pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.animate-fv-fade-in { animation: fv-fade-in 0.4s ease-out forwards; }
+.animate-fv-slide-left { animation: fv-slide-left 0.35s ease-out forwards; }
+.animate-fv-shimmer {
+  background: linear-gradient(90deg, #F3F4F6 25%, #E9EAEC 50%, #F3F4F6 75%);
+  background-size: 200% 100%;
+  animation: fv-shimmer 2s linear infinite;
+}
+.animate-fv-pulse-dot { animation: fv-pulse-dot 1.5s ease-in-out infinite; }

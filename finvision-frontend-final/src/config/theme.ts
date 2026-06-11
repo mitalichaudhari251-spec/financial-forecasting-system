@@ -1,0 +1,37 @@
+export const theme = {
+  colors: {
+    background: '#F5F7FB',
+    card: '#FFFFFF',
+    primary: '#4F46E5',
+    primaryDark: '#3730A3',
+    primaryLight: '#6366F1',
+    teal: '#0D9488',
+    tealLight: '#14B8A6',
+    green: '#16A34A',
+    greenLight: '#22C55E',
+    red: '#DC2626',
+    redLight: '#EF4444',
+    amber: '#D97706',
+    textPrimary: '#111827',
+    textSecondary: '#374151',
+    textMuted: '#6B7280',
+    border: '#E5E7EB',
+    borderLight: '#F3F4F6',
+  },
+  shadows: {
+    card: '0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px 0 rgba(0,0,0,0.04)',
+    cardHover: '0 4px 12px 0 rgba(0,0,0,0.08), 0 2px 4px 0 rgba(0,0,0,0.04)',
+    dropdown: '0 10px 40px -4px rgba(0,0,0,0.12)',
+    sidebar: '1px 0 0 0 #E5E7EB',
+  },
+  radius: {
+    sm: '6px',
+    md: '8px',
+    lg: '12px',
+    xl: '16px',
+  },
+  spacing: {
+    sidebarWidth: '240px',
+    navbarHeight: '56px',
+  },
+} as const;

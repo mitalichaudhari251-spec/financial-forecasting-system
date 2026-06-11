@@ -1,0 +1,30 @@
+/* FinVision-RL Theme Variables */
+:root {
+  --fv-primary: #4F46E5;
+  --fv-primary-dark: #3730A3;
+  --fv-primary-light: #6366F1;
+  --fv-teal: #0D9488;
+  --fv-teal-light: #14B8A6;
+  --fv-green: #16A34A;
+  --fv-green-light: #22C55E;
+  --fv-red: #DC2626;
+  --fv-red-light: #EF4444;
+  --fv-amber: #D97706;
+  --fv-bg: #F5F7FB;
+  --fv-card: #FFFFFF;
+  --fv-border: #E5E7EB;
+  --fv-border-light: #F3F4F6;
+  --fv-text-primary: #111827;
+  --fv-text-secondary: #374151;
+  --fv-text-muted: #6B7280;
+  --fv-text-subtle: #9CA3AF;
+  --fv-sidebar-width: 240px;
+  --fv-navbar-height: 56px;
+  --fv-shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --fv-shadow-card-hover: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --fv-shadow-dropdown: 0 10px 40px -4px rgba(0,0,0,0.12);
+  --fv-radius-sm: 6px;
+  --fv-radius-md: 8px;
+  --fv-radius-lg: 12px;
+  --fv-radius-xl: 16px;
+}

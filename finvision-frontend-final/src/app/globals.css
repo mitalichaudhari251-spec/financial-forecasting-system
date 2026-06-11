@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 220 14% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 11%;
+    --primary: 239 84% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 14% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 174 77% 30%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 239 84% 59%;
+    --radius: 0.5rem;
+
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+    --sidebar-width: 240px;
+    --navbar-height: 56px;
+
+    --fv-primary: #4F46E5;
+    --fv-primary-dark: #3730A3;
+    --fv-primary-light: #6366F1;
+    --fv-teal: #0D9488;
+    --fv-green: #16A34A;
+    --fv-red: #DC2626;
+    --fv-amber: #D97706;
+    --fv-bg: #F5F7FB;
+    --fv-card: #FFFFFF;
+    --fv-border: #E5E7EB;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[#F5F7FB] text-[#111827] antialiased;
+    font-family: var(--font-inter);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-inter);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #111827;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9CA3AF;
+  }
+}
+
+@layer components {
+  /* Metric card */
+  .metric-card {
+    @apply bg-white rounded-xl border border-[#E5E7EB] p-5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* Shimmer skeleton */
+  .skeleton {
+    background: linear-gradient(90deg, #F3F4F6 25%, #E9EAEC 50%, #F3F4F6 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  /* Status badge */
+  .badge-bullish {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-green-50 text-green-700 border border-green-200;
+  }
+  .badge-bearish {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-700 border border-red-200;
+  }
+  .badge-neutral {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-600 border border-gray-200;
+  }
+
+  /* Section header */
+  .section-header {
+    @apply text-sm font-semibold text-[#6B7280] uppercase tracking-wider mb-3;
+  }
+
+  /* Chart container */
+  .chart-container {
+    @apply w-full bg-white rounded-xl border border-[#E5E7EB] p-5;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+
+  /* Monospace data */
+  .data-mono {
+    font-family: var(--font-mono);
+    @apply text-sm;
+  }
+
+  /* Warning banner */
+  .warning-banner {
+    @apply flex items-start gap-3 p-3 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-sm;
+  }
+
+  /* Info banner */
+  .info-banner {
+    @apply flex items-start gap-3 p-3 rounded-lg bg-blue-50 border border-blue-200 text-blue-800 text-sm;
+  }
+
+  /* Disclaimer */
+  .disclaimer {
+    @apply text-xs text-[#9CA3AF] italic leading-relaxed;
+  }
+
+  /* Gradient divider */
+  .gradient-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #E5E7EB 30%, #E5E7EB 70%, transparent);
+  }
+
+  /* Active nav item */
+  .nav-active {
+    @apply bg-indigo-50 text-indigo-700 font-medium;
+  }
+
+  /* Console/log text */
+  .console-text {
+    font-family: var(--font-mono);
+    @apply text-xs leading-relaxed;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

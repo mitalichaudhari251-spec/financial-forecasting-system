@@ -1,0 +1,49 @@
+{
+  "report_title": "FinVision-RL Evaluation Report",
+  "generated_at": "2026-05-20T07:15:05.339603",
+  "asset": "TSLA+BTC-USD+ETH-USD+NVDA",
+  "algorithm": "PPO",
+  "cnn_backbone": "resnet18",
+  "test_period": {
+    "start": "2024-10-16 00:00:00",
+    "end": "2024-12-27 00:00:00"
+  },
+  "summary": {
+    "targets_met": "4/5",
+    "overall_status": "PASS"
+  },
+  "metrics": {
+    "rmse": 0.0,
+    "mae": 0.0,
+    "directional_accuracy": 1.0,
+    "sharpe_ratio": 0.0,
+    "max_drawdown": 0.0,
+    "win_rate": 0.0,
+    "profit_factor": Infinity,
+    "total_return": 0.0,
+    "n_samples": 1
+  },
+  "targets": {
+    "rmse": {
+      "target": 0.02,
+      "met": true
+    },
+    "mae": {
+      "target": 0.015,
+      "met": true
+    },
+    "directional_accuracy": {
+      "target": 0.58,
+      "met": true
+    },
+    "sharpe_ratio": {
+      "target": 1.5,
+      "met": false
+    },
+    "max_drawdown": {
+      "target": 0.15,
+      "met": true
+    }
+  },
+  "disclaimer": "FinVision-RL outputs are for research and informational purposes only. They do not constitute financial advice. Past performance does not guarantee future results."
+}

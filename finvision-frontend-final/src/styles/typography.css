@@ -1,0 +1,12 @@
+/* FinVision-RL Typography */
+.fv-heading-xl { @apply text-2xl font-bold tracking-tight text-[#111827]; }
+.fv-heading-lg { @apply text-xl font-bold tracking-tight text-[#111827]; }
+.fv-heading-md { @apply text-lg font-semibold text-[#111827]; }
+.fv-heading-sm { @apply text-base font-semibold text-[#111827]; }
+.fv-heading-xs { @apply text-sm font-semibold text-[#111827]; }
+.fv-body { @apply text-sm text-[#374151] leading-relaxed; }
+.fv-body-sm { @apply text-xs text-[#6B7280] leading-relaxed; }
+.fv-label { @apply text-xs font-semibold text-[#374151] uppercase tracking-wider; }
+.fv-mono { font-family: var(--font-mono); @apply text-sm; }
+.fv-metric { @apply text-2xl font-bold tracking-tight text-[#111827]; }
+.fv-metric-sm { @apply text-lg font-bold text-[#111827]; }
