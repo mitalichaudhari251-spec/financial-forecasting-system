@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { motion } from 'framer-motion';
 import {
   TrendingUp,
   Brain,
@@ -58,14 +57,28 @@ const FEATURES = [
 export default function LandingPage() {
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const hasToken = document.cookie
       .split(';')
       .some((c) => c.trim().startsWith('fv_token='));
-
     setLoggedIn(hasToken);
   }, []);
+
+  // Sirf mount hone ke baad animate karo, pehle seedha visible raho
+  const heroAnim: React.CSSProperties = mounted
+    ? { opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease, transform 0.6s ease' }
+    : { opacity: 1, transform: 'translateY(0)' };
+
+  const statsAnim: React.CSSProperties = mounted
+    ? { opacity: 1, transform: 'translateY(0)', transition: 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s' }
+    : { opacity: 1, transform: 'translateY(0)' };
+
+  const featureAnim = (i: number): React.CSSProperties => mounted
+    ? { opacity: 1, transform: 'translateY(0)', transition: `opacity 0.4s ease ${i * 0.08}s, transform 0.4s ease ${i * 0.08}s` }
+    : { opacity: 1, transform: 'translateY(0)' };
 
   return (
     <div className="min-h-screen bg-[#F5F7FB] text-[#111827] overflow-x-hidden">
@@ -134,26 +147,19 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="relative z-10 max-w-6xl mx-auto px-8 pt-20 pb-16 text-center">
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
+        {/* FIX: div with CSS transition instead of motion.div */}
+        <div style={heroAnim}>
 
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#EEF2FF] border border-[#C7D2FE] text-[#5B5FEF] text-xs font-medium mb-6">
-
             <div className="w-1.5 h-1.5 rounded-full bg-[#5B5FEF] animate-pulse" />
-
             CNN + Reinforcement Learning · Institutional Grade
           </div>
 
           {/* Heading */}
           <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6 text-[#111827]">
-
             AI-Powered Financial
             <br />
-
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#5B5FEF] to-[#7C3AED]">
               Forecasting Platform
             </span>
@@ -161,7 +167,6 @@ export default function LandingPage() {
 
           {/* Description */}
           <p className="text-lg text-[#6B7280] max-w-2xl mx-auto leading-relaxed mb-10">
-
             Combining CNN-based visual market pattern recognition with
             Reinforcement Learning agents to deliver institutional-grade
             market intelligence.
@@ -169,7 +174,6 @@ export default function LandingPage() {
 
           {/* Buttons */}
           <div className="flex items-center justify-center gap-4 flex-wrap">
-
             {loggedIn ? (
               <button
                 onClick={() => router.push('/dashboard')}
@@ -199,34 +203,24 @@ export default function LandingPage() {
               </>
             )}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
-        >
-
+        {/* Stats — FIX: div with CSS transition instead of motion.div */}
+        <div style={statsAnim} className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
           {STATS.map((s) => (
             <div
               key={s.label}
               className="p-5 rounded-2xl bg-white border border-[#E5E7EB] shadow-sm"
             >
-              <div
-                className="text-2xl font-bold mb-1"
-                style={{ color: s.color }}
-              >
+              <div className="text-2xl font-bold mb-1" style={{ color: s.color }}>
                 {s.value}
               </div>
-
               <div className="text-xs text-[#6B7280]">
                 {s.label}
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </section>
 
       {/* Features */}
@@ -236,37 +230,29 @@ export default function LandingPage() {
           <h2 className="text-3xl font-bold mb-3 text-[#111827]">
             Everything you need to forecast markets
           </h2>
-
           <p className="text-[#6B7280] text-sm">
             Built for quantitative researchers and ML engineers
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
           {FEATURES.map((f, i) => (
-            <motion.div
+            // FIX: div with CSS transition instead of motion.div
+            <div
               key={f.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              style={featureAnim(i)}
               className="p-6 rounded-2xl bg-white border border-[#E5E7EB] hover:bg-[#F9FAFB] transition-colors shadow-sm"
             >
-
               <div className="w-10 h-10 rounded-xl bg-[#EEF2FF] flex items-center justify-center mb-4">
-
                 <f.icon className="w-5 h-5 text-[#5B5FEF]" />
               </div>
-
               <h3 className="text-sm font-semibold text-[#111827] mb-2">
                 {f.title}
               </h3>
-
               <p className="text-xs text-[#6B7280] leading-relaxed">
                 {f.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -275,17 +261,13 @@ export default function LandingPage() {
       <section className="relative z-10 max-w-3xl mx-auto px-8 py-16 text-center">
 
         <div className="p-10 rounded-3xl bg-white border border-[#E5E7EB] shadow-xl">
-
           <h2 className="text-3xl font-bold mb-3 text-[#111827]">
             Ready to start forecasting?
           </h2>
-
           <p className="text-[#6B7280] text-sm mb-8">
             Join researchers using FinVision-RL for quantitative market analysis.
           </p>
-
           <div className="flex items-center justify-center gap-4">
-
             {loggedIn ? (
               <button
                 onClick={() => router.push('/dashboard')}
@@ -301,7 +283,6 @@ export default function LandingPage() {
                 >
                   Request Access
                 </button>
-
                 <button
                   onClick={() => router.push('/login')}
                   className="px-6 py-3 bg-white hover:bg-[#F9FAFB] border border-[#E5E7EB] text-[#111827] font-medium rounded-xl transition-all shadow-sm"
